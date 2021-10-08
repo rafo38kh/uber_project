@@ -1,5 +1,15 @@
+$main-color: #1eacc7
+$second-color: #ff5656
+
+=btn__hover
+    &:hover
+        background-image: none
+        background-color: $main-color
+
+
 *
   font-family: "Roboto", sans-serif
+
 html
     font-size: 62.5%;
 
@@ -21,13 +31,13 @@ nav
   margin: 0
   list-style-type: none
 
-  .menu__link
+  &__link
     color: #fff
     font-style: 1.5rem
     font-weight: 300
     text-decoration: none
 
-  .menu__item
+  &__item
     border-right: 0.2rem dotted black
     padding-right: 3.8rem
 
@@ -37,26 +47,26 @@ nav
   height: 8.7rem
   background-color: rgba(0, 0, 0, 0.6)
 
-  .subheader__logo
+  &__logo
     display: block
     max-width: 100%
     margin-top: 1.6rem
 
-  .subheader__official
+  &__official
     opacity: 0.5
     color: #ffffff
     font-size: 1.3rem
     font-weight: 400
     margin-top: 0.6rem
 
-  .subheader__call
+  &__call
     color: #ffffff
     font-size: 1.2rem
     font-weight: 300
     margin-top: 1.9rem
     text-align: right
 
-  .subheader__phone
+  &__phone
     display: block
     margin-top: 0.8rem
     color: #ffffff
@@ -66,7 +76,7 @@ nav
     text-align: right
     line-height: 1.2rem
 
-  .subheader__btn
+  &__btn
     margin-top: 1.9rem
     width: 17.2rem
     height: 4.6rem
@@ -79,6 +89,9 @@ nav
     font-size: 1.4rem
     font-weight: 400
     text-transform: uppercase
+    +btn__hover
+
+
 
 .description
   display: flex
@@ -91,7 +104,7 @@ nav
   background: url(../images/main-bg.jpg) center (center / cover) no-repeat
   padding: 15rem 0 13.5rem 0
 
-  .promo__header
+  &__header
     color: #ffffff
     font-weight: 700
     text-transform: uppercase
@@ -100,7 +113,7 @@ nav
     margin: 0
     text-align: center
 
-  .promo__subheader
+  &__subheader
     color: #ffffff
     font-weight: 700
     text-transform: uppercase
@@ -110,7 +123,7 @@ nav
     margin-top: 2.2rem
     text-align: center
 
-  .promo__descr
+  &__descr
     color: #ffffff
     font-size: 1.8rem
     font-weight: 400
@@ -119,7 +132,7 @@ nav
     margin-top: 2.3rem
     width: 60%
 
-  .promo__btn
+  &__btn
     display: block
     margin: 11.8rem auto 0 auto
     width: 25.9rem
@@ -132,6 +145,7 @@ nav
     font-size: 1.8rem
     font-weight: 400
     text-transform: uppercase
+    +btn__hover
 
 .reasons
   padding: 7.1rem 0 6.5rem 0
@@ -256,6 +270,26 @@ nav
       border-radius: 100%
       padding: 0.6rem
       cursor: pointer
+      &::before
+        content: ''
+        display: block
+        width: 1.4rem
+        height: 0.2rem
+        background-color: $main-color
+        transition: 0.3s all
+      &::after
+        position: absolute
+        left: 50%
+        transform: translateX(-50%)
+        content: ''
+        display: block
+        width: 0.2rem
+        height: 1.4rem
+        background-color: $main-color
+        transition: 0.3s all
+      &:hover
+        &::before, &::after
+          background-color: $second-color
 
 .choice
 	position: relative
@@ -277,7 +311,51 @@ nav
     position: absolute
     top: 0
     left: 0
-    height: 499px
+    height: 40rem
     width: 100%
     background-color: #000
     z-index: 1
+
+.require
+  padding: 6.8rem 0 8.4rem 0
+  &__block
+    margin: 3.3rem 0
+    &__nbm
+      margin-bottom: 0rem
+  &__title
+    color: #1ca8c3
+    font-size: 2.2rem
+    font-weight: 400
+  &__list
+    list-style-type: none
+    padding-left:  5rem
+    margin-top: 2.2rem
+    li
+      position: relative
+      font-size: 1.7rem
+      font-weight: 300
+      line-height: 2.4rem
+      margin-bottom: 1rem
+      &::before
+        content: ''
+        display: block
+        position: absolute
+        left: -3.2rem
+        top: 0.3rem
+        width: 2.1rem
+        height: 2rem
+        background: url(../icons/check_blue.png) center (center / cover) no-repeat
+  &__descr
+    margin-top: 2.5rem
+    font-size: 1.7rem
+    font-weight: 300
+    line-height: 2.4rem
+    color: #1ca8ce
+  .warning
+    .require__title
+      color: $second-color
+    .require__list
+      li
+        &::before
+          background: url(../icons/check_red.png) center (center / cover) no-repeat
+
